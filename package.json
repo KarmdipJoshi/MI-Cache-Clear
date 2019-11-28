@@ -1,0 +1,27 @@
+{
+  "name": "mi-cache-reload",
+  "version": "1.0.0",
+  "description": "cache clear or reload the cache file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarmdipJoshi/MI-Cache-Clear.git"
+  },
+  "keywords": [
+    "cache",
+    "clear",
+    "cache-clear"
+  ],
+  "author": "Mindinventory",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarmdipJoshi/MI-Cache-Clear/issues"
+  },
+  "homepage": "https://github.com/KarmdipJoshi/MI-Cache-Clear#readme",
+  "bin": {
+    "generate-meta-version": "./meta.js"
+  }
+}
