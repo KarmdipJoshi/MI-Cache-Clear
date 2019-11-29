@@ -19,6 +19,14 @@ then call below function in your main.js OR index.js
 ```sh
 cacheReload()
 ```
+Add script in package.json
+
+```sh
+"generate-meta-version": "node ./node_modules/mi-cache-reload/meta.js",
+"prebuild": "npm run generate-meta-version",
+"prebuild:staging": "npm run generate-meta-version",
+"prebuild:production": "npm run generate-meta-version"
+```
 
 
 License
