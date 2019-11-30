@@ -1,7 +1,7 @@
 "use strict";
 
 let registerServiceWorker = require('./service-worker/registerServiceWorker')
-var cacheReload= function (option={cacheReloadServiceWorker: true, reload: true}) {
+var cacheReload= function (option={cacheReloadServiceWorker: true, localstorage: true, reload: true}) {
     fetch("/meta.json", {
         cache: 'no-store'
     }).then(function (response) {
@@ -16,16 +16,18 @@ var cacheReload= function (option={cacheReloadServiceWorker: true, reload: true}
                 .then(keyList =>
                     {
                         keyList.map(key => {
-                        caches.delete(key);
+                            caches.delete(key);
                         })
-                        if(cacheReloadServiceWorker){
+                        if(option.cacheReloadServiceWorker){
                             console.log("Reload cache");
                             registerServiceWorker();
                         }
-                        localStorage.clear()
-                        sessionStorage.clear()
+                        if(option.localstorage){
+                            localStorage.clear()
+                            sessionStorage.clear()
+                        }
                         localStorage.setItem("version", newVersion)
-                        if(reload){
+                        if(option.reload){
                             console.log("Reload page");
                             window.location.reload(true);
                         }
